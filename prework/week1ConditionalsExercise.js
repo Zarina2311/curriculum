@@ -52,17 +52,12 @@
 // "The value of num1 is <value here> and is greater than 10".
 
 function exercise1(num1) {
-  var answer1 = "";
-  // ------------------------------------------
-  // Write your code for exercise 1 below here:
-  // ------------------------------------------
-
-  // ------------------------------------------
-  // And above here
-  // ------------------------------------------
+  var answer1 = "num1 is small";
+  if (num1 > 10)  {
+    answer1 = "The value of num1 is " + num1 + " and is greater than 10";
+  }
   return answer1;
 }
-
 
 // EXERCISE 2.
 // Write an if/else conditional statement that if given a number will assign
@@ -76,16 +71,13 @@ function exercise1(num1) {
 
 function exercise2(num2) {
   var answer2;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  if (num2 % 2) {
+    answer2 = num2 + " is odd";
+  } else {
+    answer2 = num2 + " is even";
+  }
   return answer2;
 }
-
 
 // EXERCISE 3.
 // Write an if/else if/else block such that if `num3` is positive, then
@@ -98,16 +90,15 @@ function exercise2(num2) {
 
 function exercise3(num3) {
   var answer3;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  if (num3 > 0) {
+    answer3 = num3 + " is positive";
+  } else if (num3 < 0) {
+    answer3 = num3 + " is negative";
+  } else {
+    answer3 = num3 + " is zero";
+  }
   return answer3;
 }
-
 
 // EXERCISE 4.
 // Write an if/else statement such that if `varA` and `varB` are strings or
@@ -117,41 +108,37 @@ function exercise3(num3) {
 
 function exercise4(varA, varB) {
   var answer4;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  if (varA === varB) {
+    answer4 = "varA and varB are equal";
+  } else {
+    answer4 = "varA and varB differ";
+  }
   return answer4;
 }
-
 
 // EXERCISE 5.
 // In exercise 4, what are some of the unexpected cases where `varA` and `varB`
 // seemed like they are equal, but would not pass the tests? In your analysis
 // consider other data types beside strings and variables.
 
+ //exercise4([1], [1])
 
 // EXERCISE 6.
 // Here, assign the value of true to answer6 if:
 // `varA` and `varB` are equal, but `varA` or `varB` does not equal `varC`
 // in the event this is not the case, change the value of answer6 to false
+
 function exercise6(varA, varB, varC) {
   var answer6 = "unassigned";
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  if (varA === varB && varA !== varC) {
+    answer6 = true;
+  } else {
+    answer6 = false;
+  }
   return answer6;
-}
+}  
 
-
-// EXERCISE 8.
+// EXERCISE 7.
 // Use a switch conditional statement with case clauses such that if `num7` is
 // a number and it has a value of 1 that `answer7` is assigned the string:
 // "You won!"
@@ -166,13 +153,21 @@ function exercise6(varA, varB, varC) {
 
 function exercise7(num7) {
   var answer7;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  switch(num7) {
+    case 1:
+      answer7 = "You won!";
+      break;
+    case 7:
+      answer7 = "You're lucky!";
+      break;
+    case 101: 
+      answer7 = "Welcome to coding 101!";
+      break;
+    case 1000000:
+      answer7 = "You're one in a million!";
+      break;
+    default: 
+      answer7 = "Thanks for that!";
   return answer7;
 }
 
@@ -181,15 +176,16 @@ function exercise7(num7) {
 // the values of amount 1 and amount2 are between the values of
 // minimum and maximum
 // if not, assign a value of false to answer8
-function exercise8(amount1, amount2, minimum, maximum) {
+  
+  function exercise8(amount1, amount2, minimum, maximum) {
   var answer8;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  if (minimum < amount1 && amount1 < maximum && 
+      minimum < amount2 && amount2 < maximum)
+  {
+    answer8 = true;
+  } else {
+    answer8 = false;
+  }
   return answer8;
 }
 
@@ -200,15 +196,14 @@ function exercise8(amount1, amount2, minimum, maximum) {
 // "Please send a number, that was a <data type>."
 // for example, if item===true, the value should be:
 // "Please send a number, that was a boolean."
+  
 function exercise9(item) {
   var answer9;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  switch (typeof item) {
+    case "number":
+      answer9 = exercise7(item);
+    default: 
+      answer9 = "Please send a number, that was a " + typeof item;
   return answer9;
 }
 
@@ -223,17 +218,20 @@ function exercise9(item) {
 // and if none of these conditions are satisfied, then assign the value of
 // `num10` to `answer10`
 
-function exercise10(num10) {
+  function exercise10(num10) {
   var answer10;
-  // --------------------------------------------
-  // Write your code for the exercise below here:
-  // --------------------------------------------
-
-  // --------------------------------------------
-  // And above here
-  // --------------------------------------------
+  if (num10 % 3 === 0) { // num10 is divisible by 3
+    answer10 = "Fizz";
+  } else if (num10 % 5 === 0) { 
+    answer10 = "Buzz";
+  } else if (num10 % 15 === 0) {
+    answer10 = "Fizz Buzz";
+  } else {
+    answer10 = num10;
+  }
   return answer10;
 }
+
 
 // Congrats, you made it to the end! You rock!
 // Did you find this easy or hard? If you used references, which ones helped you? 
