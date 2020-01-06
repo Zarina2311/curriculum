@@ -1,7 +1,7 @@
 <!-- JS and the DOM -->
 
 <!-- 
-	READ THIS FIRST!
+    READ THIS FIRST!
 
 This file is an HTML file. You'll put your JS code for the exercises in a <scipt> tag at the bottom of this file.
 Open this file in Google Chrome by opening Chrome, typing command-O, and selecting this file.
@@ -19,62 +19,76 @@ For this exercise, don't change the HTML code given.
 
 <html>
 <body>
-	Animals:
-	<ol id="ol1">
-		<li>Frog</li>
-		<li>Dog</li>
-		<li>Bunny</li>
-	</ol>
+    Animals:
+    <ol id="ol1">
+        <li>Frog</li>
+        <li>Dog</li>
+        <li>Bunny</li>
+    </ol>
 
-	<div id="id1">
-		<p>This is the text in div id1</p>
-		<p>Hope you enjoy my HTML</p>
-	</div>
+    <div id="id1">
+        <p>This is the text in div id1</p>
+        <p>Hope you enjoy my HTML</p>
+    </div>
 
-	<p id="id2">Here's some text in a paragraph</p>
+    <p id="id2">Here's some text in a paragraph</p>
 
-	<div class="myClass">
-		I love learning about HTML and JavaScript
-	</div>
+    <div class="myClass">
+        I love learning about HTML and JavaScript
+    </div>
 
-	<p class="myClass">
-		Coding is fun
-	</p>
+    <p class="myClass">
+        Coding is fun
+    </p>
 
-	<button id="button1">Button 1</button>
-	<br/><br/>
-	<button id="button2">Button 2</button>
+    <button id="button1">Button 1</button>
+    <br/><br/>
+    <button id="button2">Button 2</button>
 </body>
 
 <script type="text/javascript">
 
 // Exercise 1: Select the element with id "id2" and change the text inside it to "Here's some new text"
-
+const newElement = document.querySelector("#id2");
+newElement.textContent = "Here's some new text";
 
 // Exercise 2: Select the element with id "id1" and make the text inside it green.
-
+const newElement2 = document.querySelector("#id1");
+newElement2.style.color = "green";
 
 // Exercise 3: Select the elements that have the class "myClass". console.log the output.
-
+const newClassElement = document.querySelectorAll(".myClass");
+console.log(newClassElement);
 
 // Exercise 4: Select the children of the element with id "id1". console.log the output.
-
+const childrenOfId1 = document.querySelector("#id1").children;
+console.log(childrenOfId1);
 
 // Exercise 5: Select all list items on the page. console.log the output.
-
+let allListItems = document.querySelectorAll("li");
+console.log(allListItems);
 
 // Exercise 6: Use JavaScript to find the *number* of list items on the page. console.log the output.
-
+let numberOfListItems = document.querySelectorAll("li").length;
+console.log(numberOfListItems);
 
 // Exercise 7: Using JavaScript, create a list item and add it to the end of the ordered list.
-
+let newListItem = document.createElement("li");
+let ol = document.querySelector("#ol1");
+ol.append(newListItem);
 
 // Exercise 8: Using JavaScript, make it so that when button1 is clicked, 
 // an alert pops up saying "Hi from Techtonica".
 
+let firstButton = document.querySelector("#button1");
+firstButton.addEventListener("click", () => {
+  alert("Hi from Techtonica");
+}); 
 
 // Exercise 9: In your own words, write a few sentences explaining what the DOM is. Write your answer in a comment below:
-//
+//DOM is the browser's representation of a web page, meaning, we can manipulate DOM and change the page without
+//changing any of the HTML. 
+//DOM defines a standard for accessing documents. 
 
 
 // The next two exercises combine the DOM with other JavaScript you've learned. Try them for an extra challenge!
@@ -82,15 +96,30 @@ For this exercise, don't change the HTML code given.
 // Exercise 10: Select the elements with the class "myClass" and update the text inside each of them to end with "!"
 // Hint: To operate on multiple elements, you can use a loop.
 
+const newClass = document.querySelectorAll(".myClass");
+console.log(newClass);
+for (let i = 0; i < newClass.length; i+=1) {
+    newClass[i].innerHTML = newClass[i].innerHTML + "!";
+}
 
 // Exercise 11: Make it so when the button2 is clicked, 
 // the children of the element with id "id1" each have their text replaced with a random number 1-100
+let secondButton = document.querySelector("#button2");
+secondButton.addEventListener("click", () => {
+    const childrenOfId1Again = document.querySelector("#id1").children;
+for (let i = 0; i < childrenOfId1Again.length; i+=1) {
+childrenOfId1Again[i].textContent = Math.ceil(1 + 99 * Math.random());
+}
+});
 
 
 // How was this exercise (easy, hard, fun, confusing)?
 // What references did you use to help?
 // Please put your answers in a comment below:
-//
+// This exercise was more challenging then the ones of the previous weeks. I find DOM a bit confusing and challenging and
+// I will try to put a lot of effort to understand it better so that I can feel more comfortable using it. 
+// I used different resources online such as MDN, Treehouse, W3 schools, Stackoverflow, as well as 
+// the help of a volunteer during our study session. 
 </script>
 
 </html>
